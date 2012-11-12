@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rest-client', ">= 0"
   s.add_dependency 'activesupport', ">= 3.0"
   s.add_dependency 'i18n'
-  s.add_dependency 'yajl-ruby', '>= 0.7.8'
+  s.add_dependency 'yajl-ruby', '>= 1.1.0'
 
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "minitest"
