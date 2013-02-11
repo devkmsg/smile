@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "minitest"
   s.add_development_dependency "vcr"
   s.add_development_dependency "fakeweb"
+  s.add_development_dependency "rake"
 
 
   s.files        = `git ls-files`.split("\n")
