@@ -136,7 +136,8 @@ module Smile
   #
   # @return [RestClientResponse] The response from a RestClient.get request
   def search_raw( data, options={} )
-    options.merge!( :type => 'keyword', :data => data )
+    defaults = { :type => 'keyword', :data => data }
+    options = defaults.merge!( options )
     base_feed( options )
   end
 end
