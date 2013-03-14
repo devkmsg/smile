@@ -26,7 +26,6 @@ module Smile::ParamConverter
         :geo_album
         first_letter_downcase( param.to_s.classify ).to_sym
       when :size
-        value = value.titlecase
         :Size
       when :description, :keywords, :geography, :position, :header,
         :clean, :filenames, :public, :external, :protected, :watermarking,
