@@ -10,15 +10,23 @@ class Smile::Photo < Smile::Base
       logger.info( json )
       json["images"].map do |image_upper|
         image = upper_hash_to_lower_hash( image_upper )
-        image.merge!( {
-          :image_id  => image["id"],
-          :album_key => image["album"]["key"],
-          :album_id  => image["album"]["id"]
-        } )
+        if image["type"] == 'Collected'
+          image.merge!( {
+            :image_id  => image["id"],
+            :image_key => image["key"]
+          } )
 
-        image.delete( 'album' )
+          Smile::Photo.find( image )
+        else
+          image.merge!( {
+            :image_id  => image["id"],
+            :album_key => image["album"]["key"],
+            :album_id  => image["album"]["id"]
+          } )
 
-        Smile::Photo.new( image )
+          image.delete( 'album' )
+          Smile::Photo.new( image )
+        end
       end
     end
 
